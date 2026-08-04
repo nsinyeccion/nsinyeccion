@@ -5,56 +5,66 @@
 }
 
 body {
-    background-color: #d1d5db; /* Gris medio-claro muy equilibrado */
-    font-family: 'Montserrat', sans-serif;
+    background-color: #454545;
     color: #1f2937;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* Header */
 .encabezado {
     background: #ffffff;
+    border-bottom: 7px solid #ff0000;
     padding: 40px 20px;
     text-align: center;
-    border-bottom: 4px solid #ff0000; /* Rojo exacto del logo */
 }
 
 .logo {
-    width: 320px;
+    width: 400px;
     max-width: 90%;
     height: auto;
     margin-bottom: 15px;
+    animation: entrada-logo 850ms ease-out both;
+}
+
+@keyframes entrada-logo {
+    from {
+        opacity: 0;
+        transform: scale(1.18);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .titulo-principal {
+    color: #d70000;
     font-size: 2.2rem;
     font-weight: 800;
-    color: #d70000; /* Rojo intenso del logo */
     letter-spacing: 1px;
 }
 
 .subtitulo {
     color: #555555;
+    font-size: 1.25rem;
     font-weight: 400;
-    font-size: 1.1rem;
     margin-top: 5px;
 }
 
-/* Estilos de Secciones generales */
 section {
-    padding: 60px 20px;
     max-width: 1100px;
     margin: 0 auto;
+    padding: 60px 20px;
 }
 
 .titulo-seccion {
+    color: #ffffff;
     font-size: 2rem;
     font-weight: 700;
-    color: #111827; /* Oscuro para destacar sobre el gris medio-claro */
-    text-align: center;
     margin-bottom: 30px;
+    text-align: center;
 }
 
-/* Servicios */
 .contenedor-servicios {
     display: flex;
     flex-wrap: wrap;
@@ -63,14 +73,14 @@ section {
 }
 
 .tarjeta {
-    background-color: #ffffff;
-    padding: 30px 20px;
     width: 280px;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-top: 4px solid #ff0000;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
     text-align: center;
-    border-top: 4px solid #ff0000;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .tarjeta:hover {
@@ -79,63 +89,72 @@ section {
 }
 
 .tarjeta h3 {
+    color: #d70000;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #d70000;
     margin-bottom: 10px;
 }
 
 .tarjeta p {
     color: #333333;
     font-size: 0.95rem;
-    font-weight: 400;
     line-height: 1.4;
 }
 
-/* Formulario */
 .turnos {
     max-width: 600px;
 }
 
 .formulario {
-    background-color: #ffffff;
     padding: 35px;
+    background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.campo-formulario {
+    margin-bottom: 15px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 7px;
+    color: #1f2937;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .formulario_input,
 .formulario_input_falla {
     width: 100%;
     padding: 12px 15px;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 15px;
+    background-color: #fcfcfc;
     border: 1px solid #cccccc;
     border-radius: 6px;
-    font-size: 0.95rem;
-    background-color: #fcfcfc;
     color: #111111;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
 }
 
 .formulario_input:focus,
 .formulario_input_falla:focus {
-    outline: none;
+    background-color: #ffffff;
     border-color: #ff0000;
     box-shadow: 0 0 6px rgba(255, 0, 0, 0.3);
-    background-color: #ffffff;
+    outline: none;
 }
 
 .boton {
-    background-color: #ff0000;
-    color: #ffffff;
-    border: none;
-    padding: 14px;
     width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
+    padding: 14px;
+    background-color: #ff0000;
+    border: none;
     border-radius: 6px;
+    color: #ffffff;
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
     transition: background-color 0.2s ease;
 }
 
@@ -143,131 +162,124 @@ section {
     background-color: #a80000;
 }
 
-/* Ubicación */
-.texto-ubicacion {
+.boton:disabled {
+    background-color: #9ca3af;
+    cursor: wait;
+}
+
+.mensaje-formulario {
+    margin: 0 0 15px;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.mensaje-formulario.exito {
+    background-color: #dcfce7;
+    border: 1px solid #86efac;
+    color: #166534;
+    font-size: 1rem;
     text-align: center;
+}
+.mensaje-formulario.error { background-color: #fee2e2; color: #991b1b; }
+.mensaje-formulario.consulta { background-color: #e0f2fe; color: #075985; }
+
+.contenedor-horarios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.boton-horario {
+    min-height: 48px;
+    flex: 1 1 110px;
+    padding: 12px 22px;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 8px;
+    color: #333333;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.25s;
+}
+
+.boton-horario:hover { background: #d71920; color: #ffffff; }
+.boton-horario.seleccionado { background: #d71920; color: #ffffff; }
+
+.horarios {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin-bottom: 20px;
+    padding: 25px;
+    background: #f8f8f8;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+}
+
+.titulo-horarios {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.ocupado {
+    background: #d9d9d9 !important;
+    color: #777777 !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+button:focus-visible,
+input.formulario_input:focus-visible,
+textarea.formulario_input_falla:focus-visible {
+    outline: 3px solid #111827;
+    outline-offset: 3px;
+}
+
+.texto-ubicacion {
+    margin-bottom: 20px;
+    color: #ffffff;
     font-size: 1.05rem;
-    color: #1f2937;
+    text-align: center;
 }
 
 .contenedor-mapa {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    border-radius: 12px;
     overflow: hidden;
+    border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
-iframe {
-    width: 100%;
-    height: 400px;
-    border: 0;
-}
+iframe { width: 100%; height: 400px; border: 0; }
 
-/* Footer */
 footer {
+    margin-top: 40px;
+    padding: 25px 20px;
     background-color: #111827;
+    border-top: 3px solid #ff0000;
     color: #ffffff;
     text-align: center;
-    padding: 25px 20px;
-    margin-top: 40px;
-    border-top: 3px solid #ff0000;
 }
 
-footer p {
-    font-size: 0.85rem;
-    color: #9ca3af;
-} 
+footer p { color: #9ca3af; font-size: 0.85rem; }
 
-.contenedor-horarios{
-
-    display:flex;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-
+@media (max-width: 600px) {
+    .encabezado { padding: 28px 16px; }
+    section { padding: 42px 16px; }
+    .titulo-seccion { font-size: 1.7rem; }
+    .tarjeta { width: 100%; max-width: 360px; }
+    .formulario { padding: 22px 18px; }
+    .horarios { padding: 18px; }
+    iframe { height: 320px; }
 }
 
-.boton-horario{
-
-    padding:12px 22px;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#f1f1f1;
-
-    color:#333;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-    font-size:15px;
-    
-
+@media (prefers-reduced-motion: reduce) {
+    .logo {
+        animation: none;
+    }
 }
 
-.boton-horario:hover{
-
-    background:#d71920;
-
-    color:white;
-
-}
-
-.seleccionado{
-
-    background:#d71920;
-
-    color:white;
-
-}
-
-
-.horarios{
-
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-
-    margin-top:20px;
-    margin-bottom:20px;
-
-    padding:25px;
-
-    background:#f8f8f8;
-
-    border:1px solid #ddd;
-
-    border-radius:12px;
-
-}
-
-.titulo-horarios{
-
-    margin:0;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    color:#333;
-
-}
-
-.ocupado{
-
-    background:#d9d9d9 !important;
-
-    color:#777 !important;
-
-    cursor:not-allowed;
-
-    opacity:0.7;
-
-}
