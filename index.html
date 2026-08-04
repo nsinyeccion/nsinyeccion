@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NS Inyección - Mecánica General e Inyección Electrónica</title>
-    
-    <!-- Fuente Montserrat desde Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
-
     <header class="encabezado">
         <img src="ChatGPT Image 27 jul 2026, 17_53_49.png" alt="Logo de NS Inyección" class="logo">
         <h1 class="titulo-principal">NS INYECCIÓN</h1>
@@ -22,66 +19,57 @@
     </header>
 
     <main>
-        <section class="servicios"> 
+        <section class="servicios">
             <h2 class="titulo-seccion">Nuestros Servicios</h2>
-            
             <div class="contenedor-servicios">
-                <article class="tarjeta">
-                    <h3>MECÁNICA GENERAL</h3>
-                    <p>Mantenimiento y reparación integral del vehículo.</p>   
-                </article>
-
-                <article class="tarjeta">
-                    <h3>INYECCIÓN ELECTRÓNICA</h3>
-                    <p>Diagnóstico y reparación de sistemas electrónicos.</p>
-                </article>
-
-                <article class="tarjeta">
-                    <h3>REPROS</h3>
-                    <p>Reprogramaciones de potencia: Stage 1 • Stage 2 • Stage 3</p>
-                </article>
-
-                <article class="tarjeta">
-                    <h3>EGR OFF</h3>
-                    <p>Soluciones y anulación del sistema EGR.</p>
-                </article>
-
-                <article class="tarjeta">
-                    <h3>DPF OFF</h3>
-                    <p>Anulación y soluciones para filtro de partículas.</p>
-                </article>
-
-                <article class="tarjeta">
-                    <h3>UREA OFF</h3>
-                    <p>Soluciones para el sistema AdBlue / Urea.</p>
-                </article>
+                <article class="tarjeta"><h3>MECÁNICA GENERAL</h3><p>Mantenimiento y reparación integral del vehículo.</p></article>
+                <article class="tarjeta"><h3>INYECCIÓN ELECTRÓNICA</h3><p>Diagnóstico y reparación de sistemas electrónicos.</p></article>
+                <article class="tarjeta"><h3>REPROS</h3><p>Reprogramaciones de potencia: Stage 1 • Stage 2 • Stage 3</p></article>
+                <article class="tarjeta"><h3>EGR OFF</h3><p>Soluciones y anulación del sistema EGR.</p></article>
+                <article class="tarjeta"><h3>DPF OFF</h3><p>Anulación y soluciones para filtro de partículas.</p></article>
+                <article class="tarjeta"><h3>UREA OFF</h3><p>Soluciones para el sistema AdBlue / Urea.</p></article>
             </div>
         </section>
 
         <section class="turnos">
             <h2 class="titulo-seccion">Solicitá un Turno</h2>
             <form class="formulario" id="formulario-turno">
-                <input class="formulario_input" type="text" required placeholder="Nombre y apellido" name="nombre">
-                <input class="formulario_input" type="tel" required placeholder="Teléfono" name="telefono">
-                <input class="formulario_input" type="text" required placeholder="Vehículo (Marca / Modelo)" name="vehiculo">
-                <input class="formulario_input" type="text" required placeholder="Patente" name="patente">
-                 <div class="horarios" id="horarios" style="display:none;">
-
-                     <p class="titulo-horarios">Horario de ingreso del vehículo:</p>
-                      <div class="contenedor-horarios">               
-                     <button class="hora boton-horario" type="button" >09:30</button>
-                     <button class="hora boton-horario" type="button" >10:00</button>
-                     <button class="hora boton-horario" type="button" >10:30</button>
-                     <button class="hora boton-horario" type="button" >11:00</button>
-                 </div>
-                 </div>    
-                 <input
-                   id="fecha"
-                   name="fecha"
-                   class="formulario_input"
-                   type="text"
-                   placeholder="Seleccioná una fecha">
-                <textarea class="formulario_input_falla" rows="4" required placeholder="Describa la falla o el servicio requerido" name="falla"></textarea>
+                <div class="campo-formulario">
+                    <label for="nombre">Nombre y apellido</label>
+                    <input id="nombre" class="formulario_input" type="text" required placeholder="Nombre y apellido" name="nombre" autocomplete="name">
+                </div>
+                <div class="campo-formulario">
+                    <label for="telefono">Teléfono</label>
+                    <input id="telefono" class="formulario_input" type="tel" required placeholder="Teléfono" name="telefono" autocomplete="tel">
+                </div>
+                <div class="campo-formulario">
+                    <label for="vehiculo">Vehículo (marca / modelo)</label>
+                    <input id="vehiculo" class="formulario_input" type="text" required placeholder="Vehículo (Marca / Modelo)" name="vehiculo">
+                </div>
+                <div class="campo-formulario">
+                    <label for="patente">Patente</label>
+                    <input id="patente" class="formulario_input" type="text" required placeholder="Patente" name="patente" autocomplete="off">
+                </div>
+                <div class="campo-formulario">
+                    <label for="fecha">Fecha del turno</label>
+                    <input id="fecha" name="fecha" class="formulario_input" type="text" required placeholder="Seleccioná una fecha">
+                </div>
+                <div class="horarios" id="horarios" hidden aria-live="polite">
+                    <p class="titulo-horarios">Horario de ingreso del vehículo:</p>
+                    <div class="contenedor-horarios">
+                        <button class="hora boton-horario" type="button" aria-pressed="false" disabled>09:30</button>
+                        <button class="hora boton-horario" type="button" aria-pressed="false" disabled>10:00</button>
+                        <button class="hora boton-horario" type="button" aria-pressed="false" disabled>10:30</button>
+                        <button class="hora boton-horario" type="button" aria-pressed="false" disabled>11:00</button>
+                        <button class="hora boton-horario" type="button" aria-pressed="false" disabled>11:30</button>
+                        <button class="hora boton-horario" type="button" aria-pressed="false" disabled>12:00</button>
+                    </div>
+                </div>
+                <div class="campo-formulario">
+                    <label for="falla">Falla o servicio requerido</label>
+                    <textarea id="falla" class="formulario_input_falla" rows="4" required placeholder="Describí la falla o el servicio requerido" name="falla"></textarea>
+                </div>
+                <p id="estado-formulario" class="mensaje-formulario" role="status" aria-live="polite" hidden></p>
                 <button class="boton" type="submit">ENVIAR CONSULTA</button>
             </form>
         </section>
@@ -89,20 +77,15 @@
         <section class="ubicacion">
             <h2 class="titulo-seccion">Ubicación</h2>
             <p class="texto-ubicacion">Encontranos en Calle 34 entre 170 y 171, Berisso.</p>
-            
             <div class="contenedor-mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1817.8256098843256!2d-57.85578995734007!3d-34.88098698234723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e5072472f65d%3A0x56f7ce1302cce1b3!2sTaller%20Mecanico%20NSinyeccion!5e0!3m2!1ses-419!2sar!4v1785185217241!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                <iframe title="Mapa con la ubicación de NS Inyección en Berisso" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1817.8256098843256!2d-57.85578995734007!3d-34.88098698234723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e5072472f65d%3A0x56f7ce1302cce1b3!2sTaller%20Mecanico%20NSinyeccion!5e0!3m2!1ses-419!2sar!4v1785185217241!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         </section>
-    </main> 
+    </main>
 
-    <footer>
-        <p>© 2026 NS Inyección - Todos los derechos reservados</p>
-    </footer>
+    <footer><p>© 2026 NS Inyección - Todos los derechos reservados</p></footer>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
 </body>
 </html>
